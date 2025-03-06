@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>442b4da8-6a3a-4bfc-bd1c-86fe61cf1dfe</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Futech</ProviderName>
+  <DefaultLocale>fr-CA</DefaultLocale>
+  <DisplayName DefaultValue="Onglet Administration - Futech"/>
+  <Description DefaultValue="Onglet de scripts pour l'administration - Futech"/>
+  <IconUrl DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/assets/icon-64.png"/>
+  <SupportUrl DefaultValue="https://www.futech.ca"/>
+  <AppDomains>
+    <AppDomain>https://www.futech.ca</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title"/>
+            <Description resid="GetStarted.Description"/>
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+          <FunctionFile resid="Commands.Url"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="futAdministration">
+              <Group id="futAdminGroup">
+                <Label resid="futAdminGroup.Label"/>
+                <Control xsi:type="Button" id="futFormatPaiementFourListe">
+                  <Label resid="futFormatPaiementFourListe.Label"/>
+                  <Supertip>
+                    <Title resid="futFormatPaiementFourListe.Label"/>
+                    <Description resid="futFormatPaiementFourListe.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="futFormatPaiementFourListe.16x16"/>
+                    <bt:Image size="32" resid="futFormatPaiementFourListe.32x32"/>
+                    <bt:Image size="80" resid="futFormatPaiementFourListe.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>futFormatPaFourListe</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+              <Label resid="CustomTab.Label"/>
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="futFormatPaiementFourListe.16x16" DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/assets/icoChequeCheck2-16.png"/>
+        <bt:Image id="futFormatPaiementFourListe.32x32" DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/assets/icoChequeCheck2-32.png"/>
+        <bt:Image id="futFormatPaiementFourListe.80x80" DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/assets/icoChequeCheck2-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://www.futech.ca/"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/commands_administration.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://futech.fmcspro.ca/FutechMSAddIns/taskpane_administation.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Nouvel onglet Administration"/>
+        <bt:String id="CommandsGroup.Label" DefaultValue="Payables"/>
+        <bt:String id="futFormatPaiementFourListe.Label" DefaultValue="Liste Paiements"/>
+        <bt:String id="CustomTab.Label" DefaultValue="Administration"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="Le nouvel onglet Administration a été installé avec des outils configurés pour Futech."/>
+        <bt:String id="futFormatPaiementFourListe.Tooltip" DefaultValue="Formatter la liste de paiements fournisseur pour l'impression."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
