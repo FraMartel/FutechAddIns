@@ -1,0 +1,9 @@
+##### Fichier de déploiement cPanel ######
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/fmcsproc/futech.fmcspro.ca/FutechAddIns/
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp Administration_Tab.xml $DEPLOYPATH
+    - /bin/cp commands_administration.html $DEPLOYPATH
+    - /bin/cp futFormatPaFourListe.js $DEPLOYPATH
