@@ -2,7 +2,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/fmcsproc/futech.fmcspro.ca/FutechAddIns/
+    - export DEPLOYPATH=/home/fmcsproc/futech.fmcspro.ca/FutechMSAddIns/
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp Administration_Tab.xml $DEPLOYPATH
     - /bin/cp commands_administration.html $DEPLOYPATH
