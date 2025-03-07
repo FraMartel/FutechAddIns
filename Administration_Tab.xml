@@ -33,11 +33,17 @@
             <CustomTab id="futAdministration">
               <Group id="futAdminGroup">
                 <Label resid="futAdminGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="futFormatPaiementFourListe.16x16"/>
+                  <bt:Image size="32" resid="futFormatPaiementFourListe.32x32"/>
+                  <bt:Image size="80" resid="futFormatPaiementFourListe.80x80"/>
+                </Icon>
                 <Control xsi:type="Button" id="futFormatPaiementFourListe">
                   <Label resid="futFormatPaiementFourListe.Label"/>
+                  
                   <Supertip>
                     <Title resid="futFormatPaiementFourListe.Label"/>
-                    <Description resid="futFormatPaiementFourListe.Tooltip"/>
+                    <Description resid="futForPAFourList.Tooltip"/>
                   </Supertip>
                   <Icon>
                     <bt:Image size="16" resid="futFormatPaiementFourListe.16x16"/>
@@ -74,7 +80,7 @@
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Le nouvel onglet Administration a été installé avec des outils configurés pour Futech."/>
-        <bt:String id="futFormatPaiementFourListe.Tooltip" DefaultValue="Formatter la liste de paiements fournisseur pour l'impression."/>
+        <bt:String id="futForPAFourList.Tooltip" DefaultValue="Formatter la liste de paiements fournisseur pour l'impression."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
