@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
   <Id>442b4da8-6a3a-4bfc-bd1c-86fe61cf1dfe</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.0.0.1</Version>
   <ProviderName>Futech</ProviderName>
   <DefaultLocale>fr-CA</DefaultLocale>
   <DisplayName DefaultValue="Onglet Administration - Futech"/>
@@ -32,7 +32,7 @@
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <CustomTab id="futAdministration">
               <Group id="futAdminGroup">
-                <Label resid="futAdminGroup.Label"/>
+                <Label resid="futPayablesGroup.Label"/>
                 <Icon>
                   <bt:Image size="16" resid="futFormatPaiementFourListe.16x16"/>
                   <bt:Image size="32" resid="futFormatPaiementFourListe.32x32"/>
@@ -74,7 +74,7 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Nouvel onglet Administration"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="Payables"/>
+        <bt:String id="futPayablesGroup.Label" DefaultValue="Payables"/>
         <bt:String id="futFormatPaiementFourListe.Label" DefaultValue="Liste Paiements"/>
         <bt:String id="CustomTab.Label" DefaultValue="Administration"/>
       </bt:ShortStrings>

@@ -3,7 +3,14 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/fmcsproc/futech.fmcspro.ca/FutechMSAddIns/
+    #Dossier d'images
     - /bin/cp -R assets $DEPLOYPATH
+
+    #Manifestes d'onglets personnalisés
     - /bin/cp Administration_Tab.xml $DEPLOYPATH
+
+    #Pages HTML
     - /bin/cp commands_administration.html $DEPLOYPATH
+
+    #Fonctions JS
     - /bin/cp futFormatPaFourListe.js $DEPLOYPATH
