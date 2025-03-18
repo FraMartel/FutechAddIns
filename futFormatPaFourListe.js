@@ -30,8 +30,7 @@ async function futFormatPaFourListe(event) {
       rEnteteOriginal.load("text");
       rEnteteModif.load("text");
       await context.sync();
-      console.log(rEnteteOriginal.text);
-      if(selectedSheet.getRange("D5").values != "Référence"){
+      if(!(checkEntete(rEnteteOriginal,1) && checkEntete(rEnteteModif,0))){
         throw new customException(5001, "Entêtes absents ou dans le mauvais ordre, fichier incompatible.");
       };
     
@@ -48,15 +47,36 @@ async function futFormatPaFourListe(event) {
       selectedSheet.pageLayout.zoom = { horizontalFitToPages: 1, verticalFitToPages: 0, scale: null };
 
       await context.sync();
+
+      //** Fonctions utilitaires */
+      function checkEntete(rEntete, isOriginal){
+        // Vérifiction des entêtes, originale ou modifiée, pour valider l'origine du fichier
+        let errCount = 0;
+        return ((isOriginal = 1 && rEntete[0] == "<input type='checkbox' >") || (isOriginal = 0 && rEntete[0] == ""))
+              && rEntete[1] == "N° facture"
+              && rEntete[2] == "N° transaction"
+              && rEntete[3] == "Référence"
+              && rEntete[4] == "Montant"
+              && rEntete[5] == "Paiement"
+              && rEntete[6] == "Esc. $"
+              && rEntete[7] == "Solde"
+              && rEntete[8] == "Date"
+              && rEntete[9] == "Échéance"
+              && ((isOriginal = 1 && rEntete[10] == "Terme paiement") || (isOriginal = 0 && rEntete[10] == "Terme"))
+      };
+
     });
+    
   } catch (error) {
       //Gérer les erreurs ici...
       console.error(error);
-  }
+  };
 
   // Calling event.completed is required. event.completed lets the platform know that processing has completed.
   event.completed();
-}
+};
+
+
   
   // Register the function with Office.
   Office.actions.associate("futFormatPaFourListe", futFormatPaFourListe);
