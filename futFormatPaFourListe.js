@@ -38,7 +38,7 @@ async function futFormatPaFourListe(event) {
       // Set print area for selectedSheet to range "A:K"
       selectedSheet.pageLayout.setPrintArea("A:K");
       // Set ExcelScript.PageOrientation.landscape orientation for selectedSheet
-      selectedSheet.pageLayout.orientation = Excel.PageOrientation.landscape;
+      selectedSheet.pageLayout.orientation = Excel.PageOrientation.portrait;
       // Répéter seulement la rangée 5 sur toutes les pages
       selectedSheet.pageLayout.setPrintTitleRows("$5:$5");
       // Set Letter paperSize for selectedSheet
