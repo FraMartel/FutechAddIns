@@ -52,7 +52,7 @@ async function futFormatPaFourListe(event) {
       function checkEntete(rEntete, isOriginal){
         // Vérifiction des entêtes, originale ou modifiée, pour valider l'origine du fichier
         let errCount = 0;
-        return ((isOriginal = 1 && rEntete[0] == "<input type='checkbox' >") || (isOriginal = 0 && rEntete[0] == ""))
+        return (((isOriginal == 1 && rEntete[0] == "<input type='checkbox' >") || (isOriginal == 0 && rEntete[0] == ""))
               && rEntete[1] == "N° facture"
               && rEntete[2] == "N° transaction"
               && rEntete[3] == "Référence"
@@ -62,7 +62,7 @@ async function futFormatPaFourListe(event) {
               && rEntete[7] == "Solde"
               && rEntete[8] == "Date"
               && rEntete[9] == "Échéance"
-              && ((isOriginal = 1 && rEntete[10] == "Terme paiement") || (isOriginal = 0 && rEntete[10] == "Terme"))
+              && ((isOriginal == 1 && rEntete[10] == "Terme paiement") || (isOriginal == 0 && rEntete[10] == "Terme")));
       };
 
     });
