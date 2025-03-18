@@ -30,7 +30,7 @@ async function futFormatPaFourListe(event) {
       rEnteteOriginal.load("text");
       rEnteteModif.load("text");
       await context.sync();
-      if(!(checkEntete(rEnteteOriginal.text,1) && checkEntete(rEnteteModif.text,0))){
+      if(!(checkEntete(rEnteteOriginal.text[0],1) && checkEntete(rEnteteModif.text[0],0))){
         throw new customException(5001, "Entêtes absents ou dans le mauvais ordre, fichier incompatible.");
       };
     
@@ -51,7 +51,6 @@ async function futFormatPaFourListe(event) {
       //** Fonctions utilitaires */
       function checkEntete(rEntete, isOriginal){
         // Vérifiction des entêtes, originale ou modifiée, pour valider l'origine du fichier
-        let errCount = 0;
         return (((isOriginal == 1 && rEntete[0] == "<input type='checkbox' >") || (isOriginal == 0 && rEntete[0] == ""))
               && rEntete[1] == "N° facture"
               && rEntete[2] == "N° transaction"
