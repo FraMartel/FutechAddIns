@@ -30,7 +30,7 @@ async function futFormatPaFourListe(event) {
       rEnteteOriginal.load("text");
       rEnteteModif.load("text");
       await context.sync();
-      if(!(checkEntete(rEnteteOriginal,1) && checkEntete(rEnteteModif,0))){
+      if(!(checkEntete(rEnteteOriginal.text,1) && checkEntete(rEnteteModif.text,0))){
         throw new customException(5001, "Entêtes absents ou dans le mauvais ordre, fichier incompatible.");
       };
     
