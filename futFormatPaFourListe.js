@@ -25,6 +25,11 @@ async function futFormatPaFourListe(event) {
       };
     
       // Ordre et titres de l'entête
+      let rEnteteOriginal = selectedSheet.getRange("A5:K5");
+      let rEnteteModif = selectedSheet.getRange("A1:K1");
+      rEnteteOriginal.load("text");
+      rEnteteModif.load("text");
+      console.log(rEnteteOriginal.text);
       if(selectedSheet.getRange("D5").values != "Référence"){
         throw new customException(5001, "Entêtes absents ou dans le mauvais ordre, fichier incompatible.");
       };
