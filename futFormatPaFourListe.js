@@ -29,6 +29,7 @@ async function futFormatPaFourListe(event) {
       let rEnteteModif = selectedSheet.getRange("A1:K1");
       rEnteteOriginal.load("text");
       rEnteteModif.load("text");
+      await context.sync();
       console.log(rEnteteOriginal.text);
       if(selectedSheet.getRange("D5").values != "Référence"){
         throw new customException(5001, "Entêtes absents ou dans le mauvais ordre, fichier incompatible.");
