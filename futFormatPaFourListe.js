@@ -20,7 +20,7 @@ async function futFormatPaFourListe(event) {
       // Nom de l'onglet
       selectedSheet.load("name");
       await context.sync();
-      if(selectedSheet.name != 'FactureAPayeTable'){
+      if(selectedSheet.name != 'FactureAPayerTable'){
         throw new customException(5000, "Nom de feuille invalide");
       };
     
