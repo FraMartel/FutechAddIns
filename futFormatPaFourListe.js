@@ -43,11 +43,14 @@ async function futFormatPaFourListe(event) {
       shapes.items.forEach(function (shape) {
         shape.delete();
       });
-
+      
       // Suppression des 4 premières rangées (entête déplacée à rangée 1)
-      let rAvantEntete = wsheet.getRange("1:4");
-      rAvantEntete.delete(Excel.DeleteShiftDirection.up);
-
+      // seulement si ça n'a pas déjà été fait.
+      if(checkEntete(rEnteteOriginal.text[0],1)){
+        let rAvantEntete = wsheet.getRange("1:4");
+        rAvantEntete.delete(Excel.DeleteShiftDirection.up);
+      };
+      
       /** Modifier les entêtes et les largeurs de colonnes - non-destructeur */
       wsheet.getRange("A1").values = [[""]];
       wsheet.getRange("K1").values = [["Terme"]];
