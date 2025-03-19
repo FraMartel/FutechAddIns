@@ -47,7 +47,19 @@ async function futFormatPaFourListe(event) {
       // Suppression des 4 premières rangées (entête déplacée à rangée 1)
       let rAvantEntete = wsheet.getRange("1:4");
       rAvantEntete.delete(Excel.DeleteShiftDirection.up);
-      
+
+      /** Modifier les entêtes et les largeurs de colonnes - non-destructeur */
+      wsheet.getRange("A1").values = [[""]];
+      wsheet.getRange("K1").values = [["Terme"]];
+      wsheet.getRange("A1").format.columnWidth = 2;
+      wsheet.getRange("B1").format.columnWidth = 11.5;
+      wsheet.getRange("C1").format.columnWidth = 11.5;
+      wsheet.getRange("D1").format.columnWidth = 20;
+      wsheet.getRange("E1:J1").format.columnWidth = 11;
+      wsheet.getRange("K1").format.columnWidth = 6.5;
+
+      /** Modifier les couleurs */
+
       /** Ajuster la mise en page de la feuille - modifications non destructrices */
       // Set print area for wsheet to range "A:K"
       wsheet.pageLayout.setPrintArea("A:K");
