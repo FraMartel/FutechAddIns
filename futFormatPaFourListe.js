@@ -52,11 +52,10 @@ async function futFormatPaFourListe(event) {
       wsheet.getRange("A1").values = [[""]];
       wsheet.getRange("K1").values = [["Terme"]];
       wsheet.getRange("A1").format.columnWidth = 2;
-      wsheet.getRange("B1").format.columnWidth = 11.5;
-      wsheet.getRange("C1").format.columnWidth = 11.5;
-      wsheet.getRange("D1").format.columnWidth = 20;
-      wsheet.getRange("E1:J1").format.columnWidth = 11;
-      wsheet.getRange("K1").format.columnWidth = 6.5;
+      wsheet.getRange("B1:C1").format.columnWidth = 78;
+      wsheet.getRange("D1").format.columnWidth = 150;
+      wsheet.getRange("E1:J1").format.columnWidth = 78;
+      wsheet.getRange("K1").format.columnWidth = 50;
 
       /** Modifier les couleurs */
 
