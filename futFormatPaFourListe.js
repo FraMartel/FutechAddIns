@@ -59,6 +59,9 @@ async function futFormatPaFourListe(event) {
       wsheet.getRange("D1").format.columnWidth = 150;
       wsheet.getRange("E1:J1").format.columnWidth = 78;
       wsheet.getRange("K1").format.columnWidth = 50;
+      wsheet.getRange("E1:J1").format.horizontalAlignment = "Right";
+      // Appliquer un format de nombre plus facile à lire sur les montants
+      wsheet.getRange("E:H").numberFormat = [["# ### ##0.00"]];
 
       /** Modifier les couleurs et formats des rangées - non destructeur */
       // Création des objets de format, définition plus bas.
@@ -108,6 +111,7 @@ async function futFormatPaFourListe(event) {
         } else {
           // Action pour les lignes de code fournisseur (entêtes)
           currentRowFormat.set(oFormatBold);
+          currentRowFormat.rowHeight = 28;
           currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
             .set({
               style: Excel.BorderLineStyle.continuous,
