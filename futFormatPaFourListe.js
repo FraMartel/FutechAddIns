@@ -94,8 +94,7 @@ async function futFormatPaFourListe(event) {
             currentRowFormat.set(oFormatBold);
             currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
             .set({
-              style: Excel.BorderLineStyle.double,
-              weight: Excel.BorderWeight.thin
+              style: Excel.BorderLineStyle.double
             });
           } else {
             // Action pour le total final
