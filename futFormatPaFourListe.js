@@ -134,7 +134,7 @@ async function futFormatPaFourListe(event) {
       // Set FitAllColumnsOnOnePage scaling for wsheet
       wsheet.pageLayout.zoom = { horizontalFitToPages: 1, verticalFitToPages: 0, scale: null };
       // Spécifier les marges (marges fines)
-      wsheet.pageLayout.setPrintMargins("Centimeters", { bottom: 0.6, top: 0.6, left: 0.6, right: 0.6 });
+      wsheet.pageLayout.setPrintMargins("Centimeters", { bottom: 0.6, top: 1.9, left: 0.6, right: 0.6 });
 
       // Création d'une entête (header de page)
       wsheet.pageLayout.headersFooters.defaultForAllPages.leftHeader = '&"Tahoma"&11&LSIMULATION DE PAIEMENT - &D &T';
