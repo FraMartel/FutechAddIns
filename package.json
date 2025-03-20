@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/office-js": "^1.0.480",
+    "@types/office-runtime": "^1.0.35"
+  }
+}
