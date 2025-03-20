@@ -128,7 +128,7 @@ async function futFormatPaFourListe(event) {
       // Set ExcelScript.PageOrientation.landscape orientation for wsheet
       wsheet.pageLayout.orientation = Excel.PageOrientation.portrait;
       // Répéter seulement la rangée 5 sur toutes les pages
-      wsheet.pageLayout.setPrintTitleRows("$5:$5");
+      wsheet.pageLayout.setPrintTitleRows("$1:$1");
       // Set Letter paperSize for wsheet
       wsheet.pageLayout.paperSize = Excel.PaperType["letter"];
       // Set FitAllColumnsOnOnePage scaling for wsheet
@@ -137,8 +137,8 @@ async function futFormatPaFourListe(event) {
       wsheet.pageLayout.setPrintMargins("Centimeters", { bottom: 0.6, top: 0.6, left: 0.6, right: 0.6 });
 
       // Création d'une entête (header de page)
-      wsheet.pageLayout.headersFooters.defaultForAllPages.leftHeader = '&"Tahoma"&LSIMULATION DE PAIEMENT - &D';
-      wsheet.pageLayout.headersFooters.defaultForAllPages.rightFooter = '&P/&N';
+      wsheet.pageLayout.headersFooters.defaultForAllPages.leftHeader = '&"Tahoma"&11&LSIMULATION DE PAIEMENT - &D &T';
+      wsheet.pageLayout.headersFooters.defaultForAllPages.rightHeader = 'p. &P/&N';
 
       await context.sync();
 
