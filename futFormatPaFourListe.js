@@ -60,7 +60,63 @@ async function futFormatPaFourListe(event) {
       wsheet.getRange("E1:J1").format.columnWidth = 78;
       wsheet.getRange("K1").format.columnWidth = 50;
 
-      /** Modifier les couleurs */
+      /** Modifier les couleurs et formats des rangées - non destructeur */
+      // Création des objets de format, définition plus bas.
+      const oFormatStd = FormatStd();
+      const oFormatBold = FormatBold();
+
+      let rUsedRange = wsheet.getUsedRange();
+      rUsedRange.load("rowCount,values");
+      await context.sync();
+  
+      rUsedRange.values.forEach( (value, index) => {
+
+        let currentRowFormat = rUsedRange.getRow(index).format;
+        let currentRowBorders = currentRowFormat.borders;
+        if (index = 0){
+          currentRowFormat.set(oFormatBold);
+          currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
+          .set({
+            style: Excel.BorderLineStyle.continuous,
+            weight: Excel.BorderWeight.thick
+          });
+        } else if (typeof (value[0]) == "boolean"){
+          // Action pour les lignes de détails
+          currentRowFormat.set(oFormatStd);
+          currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
+            .set({
+              style: Excel.BorderLineStyle.continuous,
+              weight: Excel.BorderWeight.thin
+            });
+        } else if( value[0].slice(0,5) == "Total"){
+          if(index < rUsedRange.rowCount -1){
+            // Action pour les totaux partiels
+            currentRowFormat.set(oFormatBold);
+            currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
+            .set({
+              style: Excel.BorderLineStyle.double,
+              weight: Excel.BorderWeight.thin
+            });
+          } else {
+            // Action pour le total final
+            currentRowFormat.set(oFormatBold);
+            currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
+            .set({
+              style: Excel.BorderLineStyle.double,
+              weight: Excel.BorderWeight.medium
+            });
+          };
+        } else {
+          // Action pour les lignes de code fournisseur (entêtes)
+          currentRowFormat.set(oFormatBold);
+          currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
+            .set({
+              style: Excel.BorderLineStyle.continuous,
+              weight: Excel.BorderWeight.thin
+            });
+        };
+      });
+
 
       /** Ajuster la mise en page de la feuille - modifications non destructrices */
       // Set print area for wsheet to range "A:K"
@@ -92,6 +148,20 @@ async function futFormatPaFourListe(event) {
               && rEntete[8] == "Date"
               && rEntete[9] == "Échéance"
               && ((isOriginal == 1 && rEntete[10] == "Terme paiement") || (isOriginal == 0 && rEntete[10] == "Terme")));
+      };
+
+      // Définition du format de l'entête
+      function FormatStd(){
+        return {
+          fill: {color: "FFFFFF"},
+          font: {bold: false, color: "black",name: "Tahoma"}
+        };
+      };
+      function FormatBold(){
+        return {
+          fill: {color: "FFFFFF"},
+          font: {bold: true, color: "black",name: "Tahoma"}
+        };
       };
 
     });
