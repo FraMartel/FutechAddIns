@@ -73,7 +73,7 @@ async function futFormatPaFourListe(event) {
 
         let currentRowFormat = rUsedRange.getRow(index).format;
         let currentRowBorders = currentRowFormat.borders;
-        if (index = 0){
+        if (index == 0){
           currentRowFormat.set(oFormatBold);
           currentRowBorders.getItem(Excel.BorderIndex.edgeBottom)
           .set({
